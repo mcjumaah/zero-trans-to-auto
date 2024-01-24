@@ -26,6 +26,7 @@ npm install @mcjumaah/zero-trans-to-auto
 ```
 
 Then, import and register the component.
+The component itself does not include any CSS. You'll need to include it separately for the component to work
 
 ```js
 // main.ts or main.js
@@ -34,6 +35,7 @@ import { createApp } from "vue";
 import App from "./App.vue";
 
 import ZeroTransToAuto from "@mcjumaah/zero-trans-to-auto";
+import "@mcjumaah/zero-trans-to-auto/styles.css";
 
 createApp(App)
     .use(ZeroTransToAuto);

@@ -1,5 +1,5 @@
 {
-  "name": "zero-trans-to-auto",
+  "name": "@mcjumaah/zero-trans-to-auto",
   "description": "Vue Component to Transition sizes(width, height) from `0` to `auto`",
   "version": "1.0.0",
   "type": "module",

@@ -1,46 +1,64 @@
 # zero-trans-to-auto
 
-This template should help get you started developing with Vue 3 in Vite.
+Vue Component to Transition sizes(width, height) from `0` to `auto`. Not really, but we can get the same result by utilizing Grid.
 
-## Recommended IDE Setup
+https://www.npmjs.com/package/@mcjumaah/zero-trans-to-auto
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+### The Problem:
 
-## Type Support for `.vue` Imports in TS
+Normally, we can't transition elements from height/width of `0` to `auto`.
 
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
+### Reference
 
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
+My reference to the approach I utilized in this component is mainly from the YT video of Kevin Powell:
 
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
+- https://youtu.be/B_n4YONte5A?si=qK1lGhhttpftBzYp
+- https://keithjgrant.com/posts/2023/04/transitioning-to-height-auto/
 
-## Customize configuration
+## Get started
 
-See [Vite Configuration Reference](https://vitejs.dev/config/).
+**Zero Transition To Auto**
 
-## Project Setup
+Install:
 
-```sh
-npm install
+```bash
+npm install @mcjumaah/zero-trans-to-auto
 ```
 
-### Compile and Hot-Reload for Development
+Then, import and register the component.
 
-```sh
-npm run dev
+```js
+// main.ts or main.js
+
+import { createApp } from "vue";
+import App from "./App.vue";
+
+import ZeroTransToAuto from "@mcjumaah/zero-trans-to-auto";
+
+createApp(App)
+    .use(ZeroTransToAuto);
+    .mount("#app");
 ```
 
-### Type-Check, Compile and Minify for Production
+Then insert the element you want to transition inside the component:
 
-```sh
-npm run build
+```vue
+<template>
+  <div>
+    <ZeroTransToAuto> Insert Elements Here </ZeroTransToAuto>
+  </div>
+</template>
 ```
 
-### Lint with [ESLint](https://eslint.org/)
+### Props
 
-```sh
-npm run lint
-```
+| Prop                        | Description                                                                                                                                                                                                     | Type      | Default |
+| --------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------- | ------- |
+| customClass                 | custom class                                                                                                                                                                                                    | `string`  | -       |
+| isOpen                      | indicate the status of the component if it's open                                                                                                                                                               | `boolean` | false   |
+| transitionDirectionAxis     | input 'y' for y-axis (i.e., vertical transition), 'x' for x-axis (i.e., horizontal transition)                                                                                                                  | `string`  | 'y'     |
+| isOnHover                   | to transition when hovered by the cursor                                                                                                                                                                        | `boolean` | true    |
+| disableDefaultBgColor       | remove the default background color (i.e., gray). You can put your custom background color on `customClass` prop                                                                                                | `boolean` | false   |
+| disableDefaultPadding       | remove the default padding (i.e., 10px). You can put your custom padding on `customClass` prop                                                                                                                  | `boolean` | false   |
+| disableDefaultTransitionAll | remove the default transition (i.e., transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 150ms;). You can put your custom transition on `customClass` prop | `boolean` | false   |
+| disableWidthFit             | remove the default width (i.e., fit-content). You can put your custom width on `customClass` prop                                                                                                               | `boolean` | false   |

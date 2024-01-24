@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { ref } from 'vue'
-import ZeroTransToAuto from './components/ZeroTransToAuto.vue'
+// import ZeroTransToAuto from './components/ZeroTransToAuto.vue'
 
 let isOpen = ref(false)
 let isOnHover = ref(true)

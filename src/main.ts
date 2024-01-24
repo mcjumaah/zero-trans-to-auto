@@ -1,4 +1,5 @@
 import { createApp } from 'vue'
 import App from './App.vue'
+import ZeroTransToAuto from './ZttaPlugin'
 
-createApp(App).mount('#app')
+createApp(App).use(ZeroTransToAuto).mount('#app')

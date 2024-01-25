@@ -10,7 +10,7 @@ Normally, we can't transition elements from height/width of `0` to `auto`.
 
 ### Reference
 
-My reference to the approach I utilized in this component is mainly from the YT video of Kevin Powell:
+My reference to the approach I utilized in this component is mainly from the YT video of @kevin-powell:
 
 - https://youtu.be/B_n4YONte5A?si=qK1lGhhttpftBzYp
 - https://keithjgrant.com/posts/2023/04/transitioning-to-height-auto/

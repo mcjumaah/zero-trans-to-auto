@@ -1,12 +1,12 @@
 <template>
   <div
     class="zero-to-auto-container"
-    :class="`${computedClass} ${props.customClass}`"
+    :class="computedClass"
     :style="`
       ${props.disableDefaultBgColor ? '' : 'background-color: gray;'} ${props.disableDefaultPadding ? '' : 'padding: 10px;'}
     `"
   >
-    <div>
+    <div :class="props.childClass">
       <slot></slot>
     </div>
   </div>
@@ -15,7 +15,7 @@
 <script setup lang="ts">
 import { computed } from 'vue'
 export interface Props {
-  customClass?: string
+  childClass?: string
   isOpen?: boolean
   transitionDirectionAxis?: string
   isOnHover?: boolean
